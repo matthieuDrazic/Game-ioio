@@ -1,19 +1,23 @@
-# SHARKLINE V2 — Expéditions
+# SHARKLINE V3 — Expéditions
 
 PWA autonome pour smartphone et ordinateur. Vue de côté, caméra mobile, trois zones, monnaie gagnée en jouant, boutique de 20 requins et cartes documentaires. Aucun compte ChatGPT, aucune API et aucun achat en argent réel.
 
+## Correctif V3 : toutes les images à la racine
+
+Cette version corrige les chemins des images pour un dépôt où tous les fichiers sont directement sur la branche main. Le ZIP contient uniquement des fichiers à son premier niveau : aucune arborescence à recréer. Remplace les fichiers de même nom, y compris sw.js et manifest.webmanifest. Le cache passe à v3.0.0 ; la sauvegarde reste au format V2 afin de conserver les achats et les pièces sur la même adresse et dans le même navigateur.
+
 ## Installer sur GitHub Pages
 
-1. Décompresse SHARKLINE_PWA_V2.zip.
+1. Décompresse SHARKLINE_PWA_V3.zip.
 2. Crée un dépôt public `sharkline` sur GitHub, ou ouvre ton dépôt V1.
-3. Dépose **le contenu** du dossier SHARKLINE_PWA_V2 à la racine du dépôt. `index.html` doit être directement à la racine. Dépose aussi les dossiers `assets` et `icons`. Ne dépose pas le ZIP lui-même.
-4. Valide avec **Commit changes**. Pour remplacer la V1, remplace les fichiers qui portent le même nom et ajoute tous les nouveaux. L’ancien game.js n’est plus utilisé et peut être supprimé.
+3. Dépose **les fichiers** du ZIP à la racine du dépôt. `index.html` doit être directement à la racine. Toutes les images SVG et PNG se déposent directement à la racine, avec index.html. Aucun dossier assets ou icons n’est nécessaire. Ne dépose pas le ZIP lui-même.
+4. Valide avec **Commit changes**. Pour remplacer la V1 ou la V2, remplace les fichiers qui portent le même nom et ajoute tous les nouveaux. L’ancien game.js n’est plus utilisé et peut être supprimé.
 5. Dans **Settings → Pages**, choisis **Deploy from a branch**, branche **main**, dossier **/(root)**, puis **Save**.
 6. Après publication, ouvre le lien indiqué dans Pages : `https://TON-PSEUDO.github.io/sharkline/`.
 
 Documentation officielle : https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
 
-### Si la V1 s’affiche encore
+### Si une ancienne version s’affiche encore
 
 Ouvre le lien avec Internet. Ferme toutes les fenêtres et la version installée du jeu, puis rouvre-le. Une nouvelle version du service worker attend que les fenêtres de l’ancienne soient fermées. Les nouveaux fichiers doivent tous avoir été envoyés sur GitHub.
 
@@ -84,9 +88,9 @@ Pièces, achats et requin équipé sont conservés dans le stockage local du nav
 - `sharks.js` : noms, prix, capacités, statistiques et textes documentaires.
 - `engine.js` : règles de jeu, déplacements, missions, gains et collisions.
 - `app.js` : interface, sauvegarde, boutique et dessin de l’océan.
-- `assets/` : 20 silhouettes SVG et planisphère schématique.
+- Fichiers SVG à la racine : 20 silhouettes et world.svg. Fichiers icon-180.png, icon-192.png et icon-512.png à la racine : icônes d’installation.
 - `style.css` : présentation responsive.
-- `sw.js` : fichiers mis en cache. Après une mise à jour, changer `v2.0.0` en une nouvelle version ; ajouter au tableau FILES toute nouvelle ressource nécessaire hors connexion.
+- `sw.js` : fichiers mis en cache. Après une mise à jour, changer `v3.0.0` en une nouvelle version ; ajouter au tableau FILES toute nouvelle ressource nécessaire hors connexion.
 
 Tous les fichiers requis sont locaux. Pas de dépendance JavaScript externe, pas de clé secrète, pas de compilation.
 
