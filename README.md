@@ -1,14 +1,22 @@
-# SHARKLINE V3 — Expéditions
+# SHARKLINE V4 — Expéditions
 
 PWA autonome pour smartphone et ordinateur. Vue de côté, caméra mobile, trois zones, monnaie gagnée en jouant, boutique de 20 requins et cartes documentaires. Aucun compte ChatGPT, aucune API et aucun achat en argent réel.
 
-## Correctif V3 : toutes les images à la racine
+## Nouveautés V4
 
-Cette version corrige les chemins des images pour un dépôt où tous les fichiers sont directement sur la branche main. Le ZIP contient uniquement des fichiers à son premier niveau : aucune arborescence à recréer. Remplace les fichiers de même nom, y compris sw.js et manifest.webmanifest. Le cache passe à v3.0.0 ; la sauvegarde reste au format V2 afin de conserver les achats et les pièces sur la même adresse et dans le même navigateur.
+- Campagne de neuf niveaux débloqués dans l’ordre, répartis entre récif, épave et abysses.
+- Trois rencontres finales : gardien du récif, chalut fantôme et grande poursuite. Trois esquives réussies permettent de les passer, même avec un requin pacifique. Les attaques sont précédées d’un avertissement ; le chalut laisse une ouverture.
+- Jusqu’à trois étoiles par niveau : terminer, ramasser huit pièces, terminer avec au moins 50 % de vitalité. Les étoiles déjà obtenues restent acquises.
+- Mode libre conservé et boutique de 20 requins.
+- Onglet Quiz : cinq questions tirées parmi 39, réponses expliquées et liens documentaires. Mode Découverte sans chrono ou Défi avec 20 secondes par question. Les erreurs sont proposées à nouveau plus souvent. Récompense de dix pièces par bonne réponse, plafonnée à 100 pièces par jour sur cet appareil.
+- Export et import de la sauvegarde JSON au port. L’import affiche un résumé puis demande confirmation avant de remplacer la progression.
+- Notification de mise à jour applicable au port et page indépendante de réparation du cache.
+
+Toutes les images et tous les fichiers sont à la racine. Aucun dossier assets à créer. La clé de sauvegarde V2 est conservée afin de garder les achats et les pièces à la même adresse et dans le même navigateur.
 
 ## Installer sur GitHub Pages
 
-1. Décompresse SHARKLINE_PWA_V3.zip.
+1. Décompresse SHARKLINE_PWA_V4.zip.
 2. Crée un dépôt public `sharkline` sur GitHub, ou ouvre ton dépôt V1.
 3. Dépose **les fichiers** du ZIP à la racine du dépôt. `index.html` doit être directement à la racine. Toutes les images SVG et PNG se déposent directement à la racine, avec index.html. Aucun dossier assets ou icons n’est nécessaire. Ne dépose pas le ZIP lui-même.
 4. Valide avec **Commit changes**. Pour remplacer la V1 ou la V2, remplace les fichiers qui portent le même nom et ajoute tous les nouveaux. L’ancien game.js n’est plus utilisé et peut être supprimé.
@@ -17,9 +25,13 @@ Cette version corrige les chemins des images pour un dépôt où tous les fichie
 
 Documentation officielle : https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
 
-### Si une ancienne version s’affiche encore
+### Si V2 ou V3 reste affichée
 
-Ouvre le lien avec Internet. Ferme toutes les fenêtres et la version installée du jeu, puis rouvre-le. Une nouvelle version du service worker attend que les fenêtres de l’ancienne soient fermées. Les nouveaux fichiers doivent tous avoir été envoyés sur GitHub.
+Après publication des fichiers V4, ouvre directement **https://TON-PSEUDO.github.io/sharkline/update.html** (adapte au lien de ton jeu). Cette page ne dépend pas des scripts du jeu. Exporte d’abord ta sauvegarde avec le bouton proposé, puis clique sur le bouton de réparation. Il retire le service worker et les caches du jeu, conserve le stockage des pièces et achats, puis recharge le jeu.
+
+Si cette page affiche une erreur 404, les nouveaux fichiers ne sont pas encore publiés à cette adresse. Vérifie que `update.html`, `version.json` et tous les fichiers du ZIP sont présents dans la source publiée. Une fusion dans main ne suffit pas si le déploiement Pages n’a pas abouti.
+
+Pour les prochaines versions, le jeu propose une notification au port. Applique la mise à jour après avoir terminé l’expédition.
 
 ## Installer sur smartphone
 
@@ -27,6 +39,10 @@ Ouvre le lien avec Internet. Ferme toutes les fenêtres et la version installée
 - Android : ouvrir dans Chrome → menu → Installer l’application ou Ajouter à l’écran d’accueil.
 - Les fiches et les images sont disponibles hors connexion après téléchargement du cache complet lors d’une première visite avec Internet. Les liens vers les sources nécessitent Internet.
 - Ne pas ouvrir le fichier HTML depuis l’application Fichiers : l’installation et le mode hors connexion nécessitent HTTPS ou localhost.
+
+## Campagne
+
+Ouvre l’onglet Campagne. Les niveaux demandent selon leur type d’atteindre la sortie, de collecter des proies ou du plancton, de visiter trois balises, de survivre 45 secondes, ou de passer une rencontre finale. Il faut remplir l’objectif avant de rejoindre la sortie et avant la fin du temps imparti. Une réussite débloque le niveau suivant ; un échec conserve les pièces gagnées. Bonus de réussite : 100 pièces, ou 180 pour un boss, en plus des gains ordinaires.
 
 ## Jouer
 
@@ -81,16 +97,20 @@ Sources principales, liens par espèce dans le jeu :
 
 ## Sauvegarde
 
-Pièces, achats et requin équipé sont conservés dans le stockage local du navigateur, sur cet appareil. Aucune synchronisation entre appareils. Effacer les données du site efface la progression. Le record V1, s’il existe sur la même adresse, est conservé en interne ; les requins et la monnaie V2 commencent avec le nouveau système d’achat. La V2 hébergée sur GitHub ne peut pas récupérer la progression de l’ancienne adresse ChatGPT.
+Pièces, achats, requin équipé, étoiles et résultats des quiz sont conservés dans le stockage local du navigateur, sur cet appareil. Aucune synchronisation entre appareils. Effacer les données du site efface la progression. Le record V1, s’il existe sur la même adresse, est conservé en interne ; les requins et la monnaie V2 commencent avec le nouveau système d’achat. La V2 hébergée sur GitHub ne peut pas récupérer la progression de l’ancienne adresse ChatGPT.
 
 ## Modifier le jeu
 
 - `sharks.js` : noms, prix, capacités, statistiques et textes documentaires.
 - `engine.js` : règles de jeu, déplacements, missions, gains et collisions.
 - `app.js` : interface, sauvegarde, boutique et dessin de l’océan.
+- `campaign.js` : niveaux et rencontres finales.
+- `quiz-data.js` : banque de questions et tirage.
+- `v4-ui.js` : campagne, quiz, export et import.
+- `pwa.js`, `sw.js`, `version.json`, `update.html` : mise à jour et mode hors connexion.
 - Fichiers SVG à la racine : 20 silhouettes et world.svg. Fichiers icon-180.png, icon-192.png et icon-512.png à la racine : icônes d’installation.
 - `style.css` : présentation responsive.
-- `sw.js` : fichiers mis en cache. Après une mise à jour, changer `v3.0.0` en une nouvelle version ; ajouter au tableau FILES toute nouvelle ressource nécessaire hors connexion.
+- `sw.js` : fichiers mis en cache. À chaque publication, synchroniser la version dans index.html (liens et libellés), pwa.js, sw.js, manifest.webmanifest et version.json. Ajouter au tableau FILES toute nouvelle ressource nécessaire hors connexion.
 
 Tous les fichiers requis sont locaux. Pas de dépendance JavaScript externe, pas de clé secrète, pas de compilation.
 
@@ -98,4 +118,6 @@ Tous les fichiers requis sont locaux. Pas de dépendance JavaScript externe, pas
 
 Depuis ce dossier : `python3 -m http.server 8000`, puis ouvrir http://localhost:8000.
 
-La logique a été vérifiée : 20 espèces, activation/recharge des capacités, déplacement, morsure, pièces, fin de partie et filtration pacifique. Les achats, le solde, les fonds insuffisants, l’équipement, les menus, la pause et le retour au port ont aussi été vérifiés dans un environnement DOM simulé. Le cache hors connexion a été vérifié avec ses 32 ressources et son repli de navigation. Le rendu du moteur de dessin a été inspecté sur une image de format mobile. Les vérifications de fichiers et de syntaxe sont réalisées avant livraison. Le test visuel dans un navigateur mobile n’a pas été disponible dans l’environnement de préparation : tester le confort tactile, le rendu et l’installation sur son téléphone. Cette version est un prototype jouable, pas encore une application native distribuable sur les stores.
+Les neuf niveaux, les conditions de victoire, les trois rencontres finales (y compris pour les filtreurs), les étoiles, le déblocage et l’attribution unique des récompenses ont été vérifiés automatiquement. Les quiz ont été contrôlés pour leurs choix distincts, le tirage de cinq questions, les réponses et le plafond quotidien. La reprise des sauvegardes V3 et la validation des données ont été vérifiées dans un DOM simulé. Le service worker a été testé pour ses 36 ressources, le repli hors connexion et la séparation des versions. Le dessin des trois rencontres finales a été rendu au format mobile.
+
+Un véritable navigateur mobile n’était pas disponible pour la validation : vérifier sur son téléphone le confort tactile, l’installation et le cycle réel de mise à jour. Cette version reste un prototype web jouable.

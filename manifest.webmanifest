@@ -1,9 +1,9 @@
 {
   "id": "./",
-  "name": "SHARKLINE V3 — Expéditions",
+  "name": "SHARKLINE V4 — Campagne & Quiz",
   "short_name": "SHARKLINE",
   "lang": "fr",
-  "description": "Expéditions sous-marines, 20 requins, boutique et cartes documentaires",
+  "description": "Neuf niveaux, trois boss, vingt requins et quiz documentaires.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
