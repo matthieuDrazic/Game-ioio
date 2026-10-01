@@ -1,14 +1,14 @@
 {
   "id": "./",
-  "name": "SHARKLINE — Ocean Survival",
+  "name": "SHARKLINE V2 — Expéditions",
   "short_name": "SHARKLINE",
   "lang": "fr",
-  "description": "Chasse, grandis et survis trois minutes dans l’océan.",
+  "description": "Expéditions sous-marines, 20 requins, boutique et cartes documentaires",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#041b26",
-  "theme_color": "#041b26",
+  "background_color": "#041d2b",
+  "theme_color": "#041d2b",
   "icons": [
     {
       "src": "icons/icon-192.png",
